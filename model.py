@@ -17,12 +17,12 @@ class Todo:
 
     task: str
     category: str
-    date_added: str = None
-    date_completed: str = None
+    date_added: datetime.datetime = None
+    date_completed: datetime.datetime = None
     status: int = 1  # 1 = open, 2 = completed
     position: int = None
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         """Initializes the todo item with the current date and time if date_added is None."""
         if self.date_added is None:
-            self.date_added = datetime.datetime.now().isoformat()
+            self.date_added: str = datetime.datetime.now().isoformat()
